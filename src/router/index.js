@@ -1,29 +1,45 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import Estudiantes from "../views/Estudiantes/index.vue";
+import EstudiantesCursos from "../views/Estudiantes/cursos.vue";
+import Cursos from "../views/Cursos/index.vue";
+import CursosMatricular from "../views/Cursos/matricular.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "home",
+    component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    path: "/estudiantes",
+    name: "estudiantes",
+    component: Estudiantes,
+  },
+  {
+    path: "/estudiantes/:idEstudiante/cursos",
+    name: "estudiantes.cursos",
+    component: EstudiantesCursos,
+  },
+  {
+    path: "/cursos",
+    name: "cursos",
+    component: Cursos,
+  },
+  {
+    path: "/cursos/:idCurso/matricular",
+    name: "cursos.matricular",
+    component: CursosMatricular,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
