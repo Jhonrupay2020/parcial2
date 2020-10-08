@@ -1,0 +1,30 @@
+@startuml
+ 
+node Cliente{
+    component Vista 
+}
+ 
+node "Docker1"{
+    node javaScript{
+        [MicroServicio\nlista\ncursos]
+    } 
+}
+ 
+node "Docker2"{
+    node {
+        [MicroServicio\npago]
+    }
+}
+ 
+node "Docker3"{
+ 
+node DATOS{
+    node Arraylist{
+        [Agregar Estudiantes]
+}
+ 
+Cliente --> Docker3
+Cliente --> Docker1
+Cliente --> Docker2
+
+@enduml
